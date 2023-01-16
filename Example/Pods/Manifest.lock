@@ -1,16 +1,95 @@
 PODS:
-  - OneVideoPlayer (0.1.0)
+  - Alamofire (4.9.1)
+  - APIManager (0.1.4):
+    - Alamofire (~> 4.0)
+  - DeviceKit (4.9.0)
+  - Hue (5.0.0)
+  - OnePlayer (0.1.7)
+  - OneVideoPlayer (0.1.1):
+    - OnePlayer
+    - SnapKit
+  - SnapKit (5.6.0)
+  - SwiftCoreKit (0.1.6):
+    - DeviceKit (~> 4.0)
+    - Hue (~> 5.0)
+    - SwiftCoreKit/Foundation (= 0.1.6)
+    - SwiftCoreKit/Manager (= 0.1.6)
+    - SwiftCoreKit/Tool (= 0.1.6)
+    - SwiftCoreKit/UIKit (= 0.1.6)
+    - SwifterSwift/CoreGraphics
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+  - SwiftCoreKit/Foundation (0.1.6):
+    - DeviceKit (~> 4.0)
+    - Hue (~> 5.0)
+    - SwifterSwift/CoreGraphics
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+  - SwiftCoreKit/Manager (0.1.6):
+    - DeviceKit (~> 4.0)
+    - Hue (~> 5.0)
+    - SwifterSwift/CoreGraphics
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+  - SwiftCoreKit/Tool (0.1.6):
+    - DeviceKit (~> 4.0)
+    - Hue (~> 5.0)
+    - SwifterSwift/CoreGraphics
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+  - SwiftCoreKit/UIKit (0.1.6):
+    - DeviceKit (~> 4.0)
+    - Hue (~> 5.0)
+    - SwifterSwift/CoreGraphics
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
 
 DEPENDENCIES:
+  - APIManager (from `https://gitee.com/jz-mobile/swift-apimanager.git`, tag `0.1.4`)
   - OneVideoPlayer (from `../`)
+  - SwiftCoreKit (from `https://gitee.com/jz-mobile/swift-core-kit.git`, tag `0.1.6`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DeviceKit
+    - Hue
+    - OnePlayer
+    - SnapKit
+    - SwifterSwift
 
 EXTERNAL SOURCES:
+  APIManager:
+    :git: https://gitee.com/jz-mobile/swift-apimanager.git
+    :tag: 0.1.4
   OneVideoPlayer:
     :path: "../"
+  SwiftCoreKit:
+    :git: https://gitee.com/jz-mobile/swift-core-kit.git
+    :tag: 0.1.6
+
+CHECKOUT OPTIONS:
+  APIManager:
+    :git: https://gitee.com/jz-mobile/swift-apimanager.git
+    :tag: 0.1.4
+  SwiftCoreKit:
+    :git: https://gitee.com/jz-mobile/swift-core-kit.git
+    :tag: 0.1.6
 
 SPEC CHECKSUMS:
-  OneVideoPlayer: 672b09e12d12022be58d8398594b1608122e1e73
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  APIManager: 5e6f96e9abeafa8b55eda662d2743bc1e5dea30b
+  DeviceKit: 847709bf70b78fd9ab765bd571fb9f5f815c3fc1
+  Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
+  OnePlayer: 5c2c4e380e3cc4bb0256eea7b2779121022427ea
+  OneVideoPlayer: 7511e300b960a6d85e04f91f6d7069053f2365cb
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SwiftCoreKit: bffec18befd862aa72a4cb1b7e361f004a894749
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: 64c4d3ad98329a654041c43b492b531d94727662
+PODFILE CHECKSUM: bc4e2948692b88680a02b54b613c49c4ca7c3fb0
 
 COCOAPODS: 1.11.3

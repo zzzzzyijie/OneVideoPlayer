@@ -1,11 +1,11 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/OneVideoPlayer"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/APIManager" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/DeviceKit" "${PODS_CONFIGURATION_BUILD_DIR}/Hue" "${PODS_CONFIGURATION_BUILD_DIR}/OnePlayer" "${PODS_CONFIGURATION_BUILD_DIR}/OneVideoPlayer" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftCoreKit" "${PODS_CONFIGURATION_BUILD_DIR}/SwifterSwift"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/OneVideoPlayer/OneVideoPlayer.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/APIManager/APIManager.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/DeviceKit/DeviceKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Hue/Hue.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OnePlayer/OnePlayer.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/OneVideoPlayer/OneVideoPlayer.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwiftCoreKit/SwiftCoreKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SwifterSwift/SwifterSwift.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) /usr/lib/swift '@executable_path/Frameworks' '@loader_path/Frameworks'
 LIBRARY_SEARCH_PATHS = $(inherited) "${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
-OTHER_LDFLAGS = $(inherited) -framework "OneVideoPlayer"
+OTHER_LDFLAGS = $(inherited) -framework "APIManager" -framework "AVFoundation" -framework "Alamofire" -framework "DeviceKit" -framework "Foundation" -framework "Hue" -framework "OnePlayer" -framework "OneVideoPlayer" -framework "SnapKit" -framework "SwiftCoreKit" -framework "SwifterSwift" -framework "UIKit"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

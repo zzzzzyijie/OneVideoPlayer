@@ -4,5 +4,7 @@ platform :ios, '11.0'
 
 target 'OneVideoPlayer_Example' do
   pod 'OneVideoPlayer', :path => '../'
-  pod 'OnePlayer', :git => 'https://github.com/zzzzzyijie/OnePlayer.git', :tag => '0.1.5'
+  #pod 'OnePlayer', :git => 'https://github.com/zzzzzyijie/OnePlayer.git', :tag => '0.1.5'
+  pod 'SwiftCoreKit', :git => 'https://gitee.com/jz-mobile/swift-core-kit.git', :tag => '0.1.6'
+  pod 'APIManager', :git => 'https://gitee.com/jz-mobile/swift-apimanager.git', :tag => '0.1.4'
 end

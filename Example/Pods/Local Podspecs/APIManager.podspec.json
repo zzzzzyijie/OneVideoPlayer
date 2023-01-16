@@ -1,0 +1,36 @@
+{
+  "name": "APIManager",
+  "version": "0.1.4",
+  "summary": "Swift Network Lib",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitee.com/jz-mobile/swift-apimanager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zengyijie": "zengyijie@jianzhikeji.com"
+  },
+  "source": {
+    "git": "https://gitee.com/jz-mobile/swift-apimanager.git",
+    "tag": "0.1.4"
+  },
+  "platforms": {
+    "ios": "11.0"
+  },
+  "swift_versions": [
+    "5.0",
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5"
+  ],
+  "source_files": "APIManager/Classes/**/*",
+  "dependencies": {
+    "Alamofire": [
+      "~> 4.0"
+    ]
+  },
+  "swift_version": "5.5"
+}
