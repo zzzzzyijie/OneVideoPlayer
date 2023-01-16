@@ -1,0 +1,8 @@
+use_frameworks!
+
+platform :ios, '11.0'
+
+target 'OneVideoPlayer_Example' do
+  pod 'OneVideoPlayer', :path => '../'
+  pod 'OnePlayer', :git => 'https://github.com/zzzzzyijie/OnePlayer.git', :tag => '0.1.5'
+end

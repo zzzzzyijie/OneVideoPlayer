@@ -1,0 +1,6 @@
+framework module OneVideoPlayer {
+  umbrella header "OneVideoPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - OneVideoPlayer (0.1.0)
+
+DEPENDENCIES:
+  - OneVideoPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  OneVideoPlayer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  OneVideoPlayer: 672b09e12d12022be58d8398594b1608122e1e73
+
+PODFILE CHECKSUM: 64c4d3ad98329a654041c43b492b531d94727662
+
+COCOAPODS: 1.11.3
