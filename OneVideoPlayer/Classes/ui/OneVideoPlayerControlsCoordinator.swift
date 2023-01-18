@@ -65,8 +65,8 @@ class OneVideoPlayerControlsCoordinator: OnePlayerBaseControlsCoordinator {
         button.backgroundColor = UIColor(red: 17/255.0, green: 0, blue: 0, alpha: 0.5)
         button.layer.cornerRadius = 25
         button.layer.masksToBounds = true
-        button.setImage(UIImage(named: "video_notlock"), for: .normal)
-        button.setImage(UIImage(named: "video_lock"), for: .selected)
+        button.setImage(Icon.unlock.image, for: .normal)
+        button.setImage(Icon.lock.image, for: .selected)
         button.addTarget(self,action: #selector(lockButtonAction),for: .touchUpInside)
         return button
     }()
@@ -114,7 +114,7 @@ class OneVideoPlayerControlsCoordinator: OnePlayerBaseControlsCoordinator {
     
     // MARK: - Public Method ----------------------------
     // 播放状态
-    public func showIfNeededWith(status: OneVideoPlayerManagerPlayerStatus) {
+    public override func playerStatusDidChanged(status: OneVideoPlayerManagerPlayerStatus) {
         debugPrint("status = \(status)")
         switch status {
         case .assetLoaded:
@@ -204,9 +204,7 @@ class OneVideoPlayerControlsCoordinator: OnePlayerBaseControlsCoordinator {
         UIView.animate(withDuration: duration) {
             self.controls.makeTopBottomBarVisible(alpha: alpha)
         }completion: { isFinish in
-            if isFinish {
-                self.controls.isHidden = isHidden
-            }
+            self.controls.isHidden = isHidden
         }
     }
     
@@ -221,9 +219,7 @@ class OneVideoPlayerControlsCoordinator: OnePlayerBaseControlsCoordinator {
         UIView.animate(withDuration: duration) {
             self.lockButton.alpha = alpha
         } completion: { isFinish in
-            if isFinish {
-                self.lockButton.isHidden = isHidden
-            }
+            self.lockButton.isHidden = isHidden
         }
     }
     

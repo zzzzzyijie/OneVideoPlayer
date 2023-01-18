@@ -19,7 +19,7 @@ class OneVideoPlayerControls: UIView {
     /// 顶部栏
     lazy var topBarBackgroundView: UIView = {
         let view = UIView()
-        view.layer.contents = UIImage(named: "universal_video_top_shadow")?.cgImage
+        view.layer.contents = Icon.top_shadow.image?.cgImage
         return view
     }()
     
@@ -31,13 +31,12 @@ class OneVideoPlayerControls: UIView {
     /// 底部栏
     lazy var bottomBarBackgroundView: UIView = {
         let view = UIView()
-        view.layer.contents = UIImage(named: "universal_video_bottom_shadow")?.cgImage
+        view.layer.contents = Icon.bottom_shadow.image?.cgImage
         return view
     }()
     
     lazy var bottomBarView: UniversalControlsBottomBarView = {
         let view = UniversalControlsBottomBarView()
-        view.layer.contents = UIImage(named: "universal_video_bottom_shadow")?.cgImage
         return view
     }()
     
@@ -180,7 +179,7 @@ class UniversalControlsTopBarView: UIView {
     lazy var backButton: ExpandClickButton = {
         let button = ExpandClickButton()
         button.expandInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
-        button.setImage(UIImage(named: "universal_video_nav_back"), for: .normal)
+        button.setImage(Icon.nav_back.image, for: .normal)
         return button
     }()
     
@@ -248,8 +247,8 @@ class UniversalControlsBottomBarView: UIView {
     /// 播放按钮
     lazy var playButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "universal_video_pause"), for: .normal)
-        button.setImage(UIImage(named: "universal_video_play"), for: .selected)
+        button.setImage(Icon.pause.image, for: .normal)
+        button.setImage(Icon.play.image, for: .selected)
         return button
     }()
     
@@ -273,7 +272,7 @@ class UniversalControlsBottomBarView: UIView {
         view.bufferProgress = 0.0
         view.isAllowAnimateWhenDrag = false
         view.thumbSize = CGSize(width: 20, height: 20)
-        view.thumbImage = UIImage(named: "universal_video_slider_dot")
+        view.thumbImage = Icon.slider_dot.image
         view.trackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
         view.bufferTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
         view.progressTintColor = UIColor(red: 1, green: 187/255.0, blue: 0, alpha: 1.0)

@@ -1,5 +1,5 @@
 //
-//  OnePlayerViewController.swift
+//  OneVideoPlayerViewController.swift
 //  Pods
 //
 //  Created by Jie on 2023/1/16.
@@ -8,7 +8,7 @@
 import UIKit
 import OnePlayer
 
-class OnePlayerViewController: UIViewController {
+public class OneVideoPlayerViewController: UIViewController {
     
     /// 视频view
     private lazy var videoView: UIView = {
@@ -28,25 +28,23 @@ class OnePlayerViewController: UIViewController {
     /// 播放器显示容器
     private lazy var customCoordinator: OneVideoPlayerControlsCoordinator = {
         let view = OneVideoPlayerControlsCoordinator(playerView: playerView)
-        view.isShowLock = false
+        view.isShowLock = true
         view.uiActionHandler = { [weak self] action in
             self?.handlerPlayerUIAction(action: action)
         }
         return view
     }()
     
+    /// 返回的回调
+    public var backTapHandler: ((UIViewController) -> Void)?
     /// 播放管理者
     private var playManager: OnePlayerManager?
     private let videoUrl: String
     private var videoTitle: String?
-    /// 返回的回调
-    private var backTapHandler: ((UIViewController) -> Void)?
     // 支持的方向
-    private var supportedOrientations: UIInterfaceOrientationMask = .all
+    private var supportedOrientations: UIInterfaceOrientationMask?
     // present的方向
     private var presentationOrientation: UIInterfaceOrientation?
-    /// 是否支持横屏
-    private var isLandscapeSupport: Bool = true
     
     // MARK: - Life Cycle ----------------------------
     /// 初始化video page
@@ -55,31 +53,15 @@ class OnePlayerViewController: UIViewController {
     ///   - title: 标题
     ///   - supportedOrientations: 支持的方向
     ///   - presentationOrientation: present的方向
-    init(videoUrl: String,
-         title: String? = nil,
-         supportedOrientations: UIInterfaceOrientationMask? = nil,
-         presentationOrientation: UIInterfaceOrientation? = nil) {
-        self.videoUrl = videoUrl
+    public init(url: String,
+                title: String? = nil,
+                supportedOrientations: UIInterfaceOrientationMask? = nil,
+                presentationOrientation: UIInterfaceOrientation? = nil) {
+        self.videoUrl = url
         self.videoTitle = title
+        // 如果外部传进来有值，则取外部的
+        self.supportedOrientations = supportedOrientations
         self.presentationOrientation = presentationOrientation
-        // 如果外部传进来有值，则取外部的，否则默认 iPad = .all , iPhone = .portrait
-        if let supportedOrientations = supportedOrientations {
-            self.supportedOrientations = supportedOrientations
-        }else {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                self.supportedOrientations = .portrait
-            }else {
-                self.supportedOrientations = .all
-            }
-        }
-        switch self.supportedOrientations {
-        case .landscape,.all:
-            self.isLandscapeSupport = true
-            break
-        default:
-            self.isLandscapeSupport = false
-            break
-        }
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -87,7 +69,7 @@ class OnePlayerViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         setupInit()
@@ -97,36 +79,36 @@ class OnePlayerViewController: UIViewController {
         setupPlayer()
     }
     
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //super.touchesBegan(touches, with: event)
+        // 避免事件穿透
+    }
+    
     deinit {
-        debugPrint("UniversalPlayerController - deinit --")
+        debugPrint("-- OneVideoPlayerViewController is deinit  --")
     }
     
-    override var shouldAutorotate: Bool {
-        return true
+    public override var shouldAutorotate: Bool {
+        return super.shouldAutorotate
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return supportedOrientations
-    }
-    
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-        if let presentationOrientation = presentationOrientation {
-            return presentationOrientation
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if let customSupport = supportedOrientations {
+            return customSupport
         }else {
-            if isLandscapeSupport {
-                switch UIDevice.current.orientation {
-                case .landscapeLeft:
-                    return .landscapeRight
-                default:
-                    return .landscapeLeft
-                }
-            }else {
-                return .portrait
-            }
+            return super.supportedInterfaceOrientations
         }
     }
     
-    override var prefersHomeIndicatorAutoHidden: Bool {
+    public override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        if let presentationOrientation = presentationOrientation {
+            return presentationOrientation
+        }else {
+            return super.preferredInterfaceOrientationForPresentation
+        }
+    }
+    
+    public override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
     

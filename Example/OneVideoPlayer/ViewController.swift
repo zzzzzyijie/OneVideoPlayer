@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import OneVideoPlayer
+import AVFoundation
+import AVKit
 
 class ViewController: UIViewController {
 
@@ -21,5 +24,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        let sdVideoUrl =  "http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/picker_examle_video.mp4"
+        let vc = OneVideoPlayerViewController(url: sdVideoUrl, title: "sdadlksjflsa")
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }
 

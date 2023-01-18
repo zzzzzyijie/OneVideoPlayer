@@ -53,11 +53,16 @@ class OneVideoPlayerLoadingView: UIView {
     
     // MARK: - Public Method ----------------------------
     public func startLoading() {
+        if loadingView.isAnimating {
+            return
+        }
         loadingView.startAnimating()
+        isHidden = false
     }
     
     public func stopLoading() {
         loadingView.stopAnimating()
+        isHidden = true
     }
     
     // MARK: - Touch Event ----------------------------
@@ -67,7 +72,7 @@ class OneVideoPlayerLoadingView: UIView {
 class OneVideoPlayerLoadingContentView: UIView {
     
     var isAnimating = false
-    var duration: CGFloat = 1
+    var duration: CGFloat = 1.5
     var lineWidth: CGFloat = 1
     var lineColor = UIColor.white
     
@@ -110,7 +115,9 @@ class OneVideoPlayerLoadingContentView: UIView {
         shapeLayer.path = path.cgPath
     }
     
-    private func setupUI() { }
+    private func setupUI() {
+        layer.addSublayer(shapeLayer)
+    }
     
     /// startAnimating
     func startAnimating() {
@@ -118,12 +125,14 @@ class OneVideoPlayerLoadingContentView: UIView {
             return
         }
         isAnimating = true
+        fadeOutShow()
         let rotationAnim = CABasicAnimation(keyPath: "transform.rotation.z")
         rotationAnim.toValue = NSNumber(value: 2.0 * CGFloat.pi)
         rotationAnim.duration = duration
         rotationAnim.repeatCount = Float(CGFloat.greatestFiniteMagnitude)
         rotationAnim.isRemovedOnCompletion = false
         shapeLayer.add(rotationAnim, forKey: "rotation")
+        isHidden = false
     }
     
     /// startAnimating
@@ -133,6 +142,7 @@ class OneVideoPlayerLoadingContentView: UIView {
         }
         isAnimating = false
         shapeLayer.removeAllAnimations()
+        isHidden = true
     }
     
     private func fadeOutShow() {

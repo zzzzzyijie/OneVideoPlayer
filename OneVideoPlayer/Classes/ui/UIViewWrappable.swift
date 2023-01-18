@@ -6,13 +6,13 @@
 //
 
 
-protocol NamespaceWrappable {
+protocol OneNamespaceWrappable {
     associatedtype WrapperType
     var one: WrapperType { get }
     static var one: WrapperType.Type { get }
 }
 
-extension NamespaceWrappable {
+extension OneNamespaceWrappable {
     var one: NamespaceWrapper<Self> {
         get { return NamespaceWrapper(value: self) }
         set { }
@@ -36,7 +36,7 @@ struct NamespaceWrapper<T>: TypeWrapperProtocol {
     }
 }
 
-extension UIView: NamespaceWrappable { }
+extension UIView: OneNamespaceWrappable { }
 extension TypeWrapperProtocol where WrappedType: UIView {
     
     var x: CGFloat {
