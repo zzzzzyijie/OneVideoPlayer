@@ -8,18 +8,18 @@
 import UIKit
 import AVFoundation
 
-public class OnePlayerBaseControlsCoordinator: UIView {
+open class OnePlayerBaseControlsCoordinator: UIView {
     /// 播放器的View
     public weak var playerView: OnePlayerView!
     
     // MARK: - Life Cycle ----------------------------
-    required init(playerView: OnePlayerView) {
+    required public init(playerView: OnePlayerView) {
         super.init(frame: .zero)
         self.playerView = playerView
         _setupUI()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         _setupUI()
     }
