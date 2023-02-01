@@ -109,7 +109,7 @@ class OneVideoPlayerControls: UIView {
     func setupUI() {
         // add ui
         addSubview(contentView)
-        [topBarBackgroundView,bottomBarBackgroundView,topBarView,bottomBarView].forEach {
+        [topBarBackgroundView,topBarView,bottomBarBackgroundView,bottomBarView].forEach {
             contentView.addSubview($0)
         }
         
@@ -122,19 +122,19 @@ class OneVideoPlayerControls: UIView {
             $0.top.leading.trailing.equalToSuperview().offset(0)
             $0.height.equalTo(topBarHeight)
         }
-        
+
         topBarView.snp.makeConstraints {
             $0.height.equalTo(65)
             $0.top.equalTo(safeAreaLayoutGuide.snp.top)
             $0.leading.equalTo(safeAreaLayoutGuide.snp.leading)
             $0.trailing.equalTo(safeAreaLayoutGuide.snp.trailing)
         }
-        
+
         bottomBarBackgroundView.snp.makeConstraints {
             $0.bottom.leading.trailing.equalToSuperview().offset(0)
             $0.height.equalTo(bottomBarHeight)
         }
-        
+
         bottomBarView.snp.makeConstraints {
             $0.height.equalTo(65)
             $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom)
@@ -169,7 +169,7 @@ class UniversalControlsTopBarView: UIView {
     private lazy var topBarStackView: UIStackView = {
         let view = UIStackView(arrangedSubviews: [backButton,titleLabel])
         view.axis = .horizontal
-        view.alignment = .center
+        view.alignment = .fill
         view.distribution = .fill
         view.spacing = 12
         return view
@@ -187,6 +187,7 @@ class UniversalControlsTopBarView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "PingFangSC-Regular", size: 18)
+        label.textAlignment = .left
         label.textColor = .white
         return label
     }()
@@ -206,20 +207,25 @@ class UniversalControlsTopBarView: UIView {
     func setupUI() {
         // add ui
         addSubview(contentView)
-        contentView.addSubview(topBarStackView)
+        contentView.addSubview(backButton)
+        contentView.addSubview(titleLabel)
         
         // layout
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        topBarStackView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.trailing.equalToSuperview().inset(20)
-        }
-        
         backButton.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
             $0.size.equalTo(CGSize(width: 20, height: 20))
+        }
+
+        titleLabel.snp.makeConstraints {
+            $0.leading.equalTo(backButton.snp.trailing).offset(12)
+            $0.centerY.equalToSuperview()
+            // To do fix 约束冲突
+            $0.trailing.equalToSuperview().inset(20)
         }
     }
 }

@@ -10,17 +10,6 @@ import UIKit
 
 public class OneVideoPlayerRecieverView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        _setupUI()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        _setupUI()
-    }
-    
-    
     public override var canBecomeFocused: Bool {
         return true
     }
@@ -28,11 +17,6 @@ public class OneVideoPlayerRecieverView: UIView {
     override open func didMoveToSuperview() {
         super.didMoveToSuperview()
         _updateUI()
-    }
-    
-    
-    public func _setupUI() {
-        
     }
     
     public func _updateUI() {

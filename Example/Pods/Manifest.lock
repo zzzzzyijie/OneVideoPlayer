@@ -3,9 +3,10 @@ PODS:
   - APIManager (0.1.4):
     - Alamofire (~> 4.0)
   - DeviceKit (4.9.0)
+  - Gedatsu (1.2.0)
   - Hue (5.0.0)
   - OnePlayer (0.1.7)
-  - OneVideoPlayer (0.1.1):
+  - OneVideoPlayer (0.1.5):
     - OnePlayer
     - SnapKit
   - SnapKit (5.6.0)
@@ -49,6 +50,7 @@ PODS:
 
 DEPENDENCIES:
   - APIManager (from `https://gitee.com/jz-mobile/swift-apimanager.git`, tag `0.1.4`)
+  - Gedatsu
   - OneVideoPlayer (from `../`)
   - SwiftCoreKit (from `https://gitee.com/jz-mobile/swift-core-kit.git`, tag `0.1.6`)
 
@@ -56,6 +58,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - DeviceKit
+    - Gedatsu
     - Hue
     - OnePlayer
     - SnapKit
@@ -83,13 +86,14 @@ SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   APIManager: 5e6f96e9abeafa8b55eda662d2743bc1e5dea30b
   DeviceKit: 847709bf70b78fd9ab765bd571fb9f5f815c3fc1
+  Gedatsu: 13a21a3cbf7978f9ff671eca5715b94a4309d9a8
   Hue: c129cb67be7d093a82bbbc30ce8a96757bf6f37a
   OnePlayer: 5c2c4e380e3cc4bb0256eea7b2779121022427ea
-  OneVideoPlayer: 7511e300b960a6d85e04f91f6d7069053f2365cb
+  OneVideoPlayer: cf46a975749c9fb90ff0c273d73d9f8cafee4cf5
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
   SwiftCoreKit: bffec18befd862aa72a4cb1b7e361f004a894749
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: bc4e2948692b88680a02b54b613c49c4ca7c3fb0
+PODFILE CHECKSUM: 95cf143c0888ca87b1b89ceec9dd3b5585c7acea
 
 COCOAPODS: 1.11.3

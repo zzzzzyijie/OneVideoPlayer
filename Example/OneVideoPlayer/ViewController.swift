@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         
         let sdVideoUrl =  "http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/picker_examle_video.mp4"
-        let vc = OneVideoPlayerViewController(url: sdVideoUrl, title: "sdadlksjflsa")
+        let vc = UniversalVideoPlayerController(url: sdVideoUrl, title: "这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题")
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

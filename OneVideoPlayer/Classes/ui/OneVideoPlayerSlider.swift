@@ -13,7 +13,7 @@ public enum OneVideoPlayerSliderState {
     case changed(progress: CGFloat)          // 滑动改变
     case ended(progress: CGFloat)            // 滑动结束
     case onTap(progress: CGFloat)            // 点击滑杆某个位置
-    #warning("to do cancel/add")
+    case cancel                              // 取消
 }
 
 public class OneVideoPlayerSlider: UIView {
@@ -293,6 +293,9 @@ public class OneVideoPlayerSlider: UIView {
             }
             handlerBlock?(.ended(progress: progress))
             break
+        case .cancelled,.failed:
+            handlerBlock?(.cancel)
+            break
         default:
             break
         }
@@ -304,7 +307,6 @@ public class OneVideoPlayerSlider: UIView {
                 self.sliderButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             }
         }
-        handlerBlock?(.began(progress: progress))
     }
     
 }

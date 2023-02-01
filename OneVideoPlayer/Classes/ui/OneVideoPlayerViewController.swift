@@ -8,7 +8,7 @@
 import UIKit
 import OnePlayer
 
-public class OneVideoPlayerViewController: UIViewController {
+open class OneVideoPlayerViewController: UIViewController {
     
     /// 视频view
     private lazy var videoView: UIView = {
@@ -28,7 +28,7 @@ public class OneVideoPlayerViewController: UIViewController {
     /// 播放器显示容器
     private lazy var customCoordinator: OneVideoPlayerControlsCoordinator = {
         let view = OneVideoPlayerControlsCoordinator(playerView: playerView)
-        view.isShowLock = true
+        view.isShowLock = false
         view.uiActionHandler = { [weak self] action in
             self?.handlerPlayerUIAction(action: action)
         }
@@ -65,7 +65,7 @@ public class OneVideoPlayerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -88,11 +88,11 @@ public class OneVideoPlayerViewController: UIViewController {
         debugPrint("-- OneVideoPlayerViewController is deinit  --")
     }
     
-    public override var shouldAutorotate: Bool {
+    open override var shouldAutorotate: Bool {
         return super.shouldAutorotate
     }
     
-    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if let customSupport = supportedOrientations {
             return customSupport
         }else {
@@ -100,7 +100,7 @@ public class OneVideoPlayerViewController: UIViewController {
         }
     }
     
-    public override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         if let presentationOrientation = presentationOrientation {
             return presentationOrientation
         }else {
@@ -108,7 +108,7 @@ public class OneVideoPlayerViewController: UIViewController {
         }
     }
     
-    public override var prefersHomeIndicatorAutoHidden: Bool {
+    open override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
     
@@ -165,6 +165,7 @@ public class OneVideoPlayerViewController: UIViewController {
             let total = customCoordinator.endTimeDuration
             switch status {
             case .began:
+                debugPrint("----began")
                 customCoordinator.isBeginDrag = true
                 break
             case .changed(let progress):
@@ -192,6 +193,10 @@ public class OneVideoPlayerViewController: UIViewController {
                         self?.customCoordinator.isBeginDrag = false
                     }
                 })
+            case .cancel:
+                customCoordinator.isBeginDrag = false
+                debugPrint("----cancel,fial")
+                break
             }
             break
         case .lock(let isLock):
