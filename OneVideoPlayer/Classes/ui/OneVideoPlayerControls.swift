@@ -339,11 +339,11 @@ class UniversalControlsBottomBarView: UIView {
     }
 }
 
-class ExpandClickButton: UIButton {
+public class ExpandClickButton: UIButton {
     
-    var expandInset: UIEdgeInsets = .zero
+    public var expandInset: UIEdgeInsets = .zero
     
-    override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
         var bounds = bounds
         // 负值是方法响应范围
         let x = -expandInset.left
