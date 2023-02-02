@@ -30,12 +30,12 @@ open class OnePlayerBaseControlsCoordinator: UIView {
     }
     
     /// 初始化UI
-    func _setupUI() {
+    open func _setupUI() {
         
     }
     
     /// 布局UI ( 默认被添加到父控件时执行
-    func _layoutUI() {
+    open func _layoutUI() {
         if let container = superview {
             translatesAutoresizingMaskIntoConstraints = false
             topAnchor.constraint(equalTo: container.topAnchor).isActive = true
