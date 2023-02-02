@@ -20,76 +20,76 @@ public class OneVideoPlayerSlider: UIView {
     
     // MARK: - API ----------------------------
     // 进度高度
-    var progressHeight: CGFloat = 8
+    public var progressHeight: CGFloat = 8
     
     // 进度更新
-    var progress: CGFloat = 0.0 {
+    public var progress: CGFloat = 0.0 {
         didSet {
             updateUI()
         }
     }
     
     // 缓存进度
-    var bufferProgress: CGFloat = 0.0 {
+    public var bufferProgress: CGFloat = 0.0 {
         didSet {
             updateUI()
         }
     }
     
     // 背景颜色
-    var contentBackgroundColor: UIColor = UIColor.clear {
+    public var contentBackgroundColor: UIColor = UIColor.clear {
         didSet {
             contentView.backgroundColor = contentBackgroundColor
         }
     }
     
     // 默认滑杆的颜色
-    var trackTintColor: UIColor = UIColor.white {
+    public var trackTintColor: UIColor = UIColor.white {
         didSet {
             trackProgressView.backgroundColor = trackTintColor
         }
     }
     
     // 播放进度颜色
-    var progressTintColor: UIColor = UIColor.white {
+    public var progressTintColor: UIColor = UIColor.white {
         didSet {
             sliderProgressView.backgroundColor = progressTintColor
         }
     }
     
     // 缓存进度颜色
-    var bufferTrackTintColor: UIColor = UIColor.white {
+    public var bufferTrackTintColor: UIColor = UIColor.white {
         didSet {
             bufferProgressView.backgroundColor = bufferTrackTintColor
         }
     }
     
     // 滑块图片
-    var thumbImage: UIImage? {
+    public var thumbImage: UIImage? {
         didSet {
             sliderButton.setImage(thumbImage, for: .normal)
         }
     }
     
     // 滑块背景图片
-    var thumbBackgroundImage: UIImage? {
+    public var thumbBackgroundImage: UIImage? {
         didSet {
             sliderButton.setBackgroundImage(thumbBackgroundImage, for: .normal)
         }
     }
     
     // 滑块大小
-    var thumbSize: CGSize = CGSize(width: 20, height: 20)
+    public var thumbSize: CGSize = CGSize(width: 20, height: 20)
     
     // 滑杆圆角
-    var sliderRadius: CGFloat = 5 {
+    public var sliderRadius: CGFloat = 5 {
         didSet {
             setupRadius()
         }
     }
     
     /// 视频总时长 （ 用于计算打点
-    var duration: TimeInterval = 0 {
+    public var duration: TimeInterval = 0 {
         didSet {
             if duration > 0 {
                 updateUI()
@@ -98,18 +98,16 @@ public class OneVideoPlayerSlider: UIView {
     }
     
     // 是否允许Tap To progress
-    var isAllowTapToProgress: Bool = true
+    public var isAllowTapToProgress: Bool = true
     // 是否允许动画 When Drag
-    var isAllowAnimateWhenDrag: Bool = true
+    public var isAllowAnimateWhenDrag: Bool = true
     // 滑块的偏移
-    var thumbOffset: CGFloat = 3
+    public var thumbOffset: CGFloat = 3
     // 滑块临时frame
-    var thumbViewFrame: CGRect = .zero
-    // 打点列表
-    private var dotsViewList: [UIView] = []
+    public var thumbViewFrame: CGRect = .zero
     
     // 回调
-    var handlerBlock: ((OneVideoPlayerSliderState) -> Void)?
+    public var handlerBlock: ((OneVideoPlayerSliderState) -> Void)?
     
     // MARK: - Lazy UI ----------------------------
     private lazy var contentView: UIView = {

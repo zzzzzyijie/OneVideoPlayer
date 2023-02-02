@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class OneVideoPlayerLoadingView: UIView {
+public class OneVideoPlayerLoadingView: UIView {
     
     // MARK: - Lazy UI ----------------------------
     private lazy var contentView: UIView = {
