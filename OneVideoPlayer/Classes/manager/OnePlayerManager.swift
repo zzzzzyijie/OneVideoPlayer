@@ -29,6 +29,7 @@ public typealias OneVideoPlayTimeHanderClosure = (_ time: TimeInterval) -> Void
 
 
 // MARK: - PlayerManagerExtension ----------------------------
+/// 如果需要自定义，继承即可
 open class OneVideoPlayerManagerExtension: NSObject {
     
     /// 这里需要使用weak , 不然内存泄漏
@@ -36,7 +37,7 @@ open class OneVideoPlayerManagerExtension: NSObject {
     /// 是否正在播放
     var isPlaying: Bool = false
     
-    init(with playerView: OnePlayerView) {
+    public init(with playerView: OnePlayerView) {
         self.playerView = playerView
     }
     
@@ -45,6 +46,8 @@ open class OneVideoPlayerManagerExtension: NSObject {
         
     }
     
+    /// 视频是否正在播放
+    /// - Returns: yes or no
     public func isVideoPlaying() -> Bool {
         return isPlaying
     }
@@ -86,7 +89,7 @@ open class OneVideoPlayerManagerExtension: NSObject {
 }
 
 // MARK: - OnePlayerManager ----------------------------
-class OnePlayerManager: OneVideoPlayerManagerExtension {
+public class OnePlayerManager: OneVideoPlayerManagerExtension {
     
     public var status: OneVideoPlayerManagerPlayerStatus = .none
     public weak var coordinator: OnePlayerBaseControlsCoordinator?
@@ -106,7 +109,7 @@ class OnePlayerManager: OneVideoPlayerManagerExtension {
         debugPrint("OnePlayerManager is deinit")
     }
     
-    override func _setup() {
+    public override func _setup() {
         
     }
     
@@ -124,59 +127,59 @@ class OnePlayerManager: OneVideoPlayerManagerExtension {
 
 extension OnePlayerManager: OnePlayerPlaybackDelegate {
     
-    func playbackAssetLoaded(player: OnePlayer) {
+    public func playbackAssetLoaded(player: OnePlayer) {
         status = .assetLoaded
         playerStatusDidChanged(status: status)
     }
     
-    func playbackPlayerReadyToPlay(player: OnePlayer) {
+    public func playbackPlayerReadyToPlay(player: OnePlayer) {
         status = .readyToPlay
         playerStatusDidChanged(status: status)
     }
     
-    func playbackItemReadyToPlay(player: OnePlayer, item: OnePlayerItem) {
+    public func playbackItemReadyToPlay(player: OnePlayer, item: OnePlayerItem) {
         status = .readyToPlay
         playerStatusDidChanged(status: status)
     }
     
-    func playbackTimeDidChange(player: OnePlayer, to time: CMTime) {
+    public func playbackTimeDidChange(player: OnePlayer, to time: CMTime) {
         timeDidChange(time: time)
     }
     
-    func playbackDidBegin(player: OnePlayer) {
+    public func playbackDidBegin(player: OnePlayer) {
         status = .didPlay
         isPlaying = true
         playerStatusDidChanged(status: status)
     }
     
-    func playbackDidPause(player: OnePlayer) {
+    public func playbackDidPause(player: OnePlayer) {
         status = .didPause
         isPlaying = false
         playerStatusDidChanged(status: status)
     }
     
-    func playbackDidEnd(player: OnePlayer) {
+    public func playbackDidEnd(player: OnePlayer) {
         status = .didEnd
         isPlaying = false
         playerStatusDidChanged(status: status)
     }
     
-    func playbackStartBuffering(player: OnePlayer) {
+    public func playbackStartBuffering(player: OnePlayer) {
         status = .buffering
         playerStatusDidChanged(status: status)
     }
     
-    func playbackLoadedTimeRanges(player: OnePlayer, progress: CGFloat) {
+    public func playbackLoadedTimeRanges(player: OnePlayer, progress: CGFloat) {
         status = .loadedTimeRanges
         playerStatusDidChanged(status: status)
     }
     
-    func playbackEndBuffering(player: OnePlayer) {
+    public func playbackEndBuffering(player: OnePlayer) {
         status = .endBuffering
         playerStatusDidChanged(status: status)
     }
     
-    func playbackDidFailed(with error: Error) {
+    public func playbackDidFailed(with error: Error) {
         status = .failed
         isPlaying = false
         playerStatusDidChanged(status: status)
@@ -184,7 +187,7 @@ extension OnePlayerManager: OnePlayerPlaybackDelegate {
 }
 
 // MARK: - OnePlayerView Extension ----------------------------
-extension OnePlayerView {
+public extension OnePlayerView {
     
     var onePlayerManager: OnePlayerManager? {
         let manager = getExtension(with: "OnePlayerManager") as? OnePlayerManager
