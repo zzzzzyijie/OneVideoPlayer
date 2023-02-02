@@ -41,7 +41,7 @@ open class OneVideoPlayerManagerExtension: NSObject {
     }
     
     /// 初始化设置
-    func _setup() {
+    open func _setup() {
         
     }
     

@@ -12,7 +12,7 @@ import Gedatsu
 /*
  *              发布指南
  *  1. 确定版本号 （ 在2步骤里版本号 + ） ps: 不需要再在podspec里同步改，因为下面的脚本会自动改
- *  2. fastlane release_pod project:'OneVideoPlayer' version:'0.1.7'
+ *  2. fastlane release_pod project:'OneVideoPlayer' version:'0.1.8'
  *  3. 注意： 先commit 新功能，然后小修改，再执行步骤2 （ 不能无commit发布）
  *
  */

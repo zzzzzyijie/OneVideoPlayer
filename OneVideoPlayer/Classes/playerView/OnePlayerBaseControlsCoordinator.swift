@@ -47,13 +47,13 @@ open class OnePlayerBaseControlsCoordinator: UIView {
     
     /// 播放状态的改变
     /// - Parameter status: 状态
-    public func playerStatusDidChanged(status: OneVideoPlayerManagerPlayerStatus) {
+    open func playerStatusDidChanged(status: OneVideoPlayerManagerPlayerStatus) {
 
     }
     
     /// 播放时间的改变
     /// - Parameter time: 时间
-    public func timeDidChange(time: TimeInterval) {
+    open func timeDidChange(time: TimeInterval) {
         
     }
 }

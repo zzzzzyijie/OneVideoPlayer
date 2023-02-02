@@ -13,13 +13,13 @@ public class OnePlayerView: UIView {
     
     // MARK: - UI ----------------------------
     /// 播放器
-    var player: OnePlayer!
+    public var player: OnePlayer!
     /// 渲染的playerView
-    var renderingView: OnePlayerRenderingView!
+    public var renderingView: OnePlayerRenderingView!
     // MARK: - Data ----------------------------
     // -----------------Public-----------------------
     /// 是否自动播放, 默认true
-    var isAutoPlay: Bool = true
+    public var isAutoPlay: Bool = true
     // -----------------Private-----------------------
     /// 存储extension
     private var extensions: [String: OneVideoPlayerManagerExtension] = [:]

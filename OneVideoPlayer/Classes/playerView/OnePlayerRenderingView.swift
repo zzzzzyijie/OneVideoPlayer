@@ -8,13 +8,13 @@
 import UIKit
 import AVFoundation
 
-class OnePlayerRenderingView: UIView {
+public class OnePlayerRenderingView: UIView {
     
-    override class var layerClass: AnyClass {
+    public override class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
     
-    lazy var playerLayer: AVPlayerLayer = {
+    public lazy var playerLayer: AVPlayerLayer = {
         return layer as! AVPlayerLayer
     }()
     
