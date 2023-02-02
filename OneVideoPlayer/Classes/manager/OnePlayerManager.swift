@@ -96,7 +96,7 @@ public class OnePlayerManager: OneVideoPlayerManagerExtension {
     public var statusChangedHander: OneVideoPlayStatusHanderClosure? // 状态改变回调
     public var timeChangedHander: OneVideoPlayTimeHanderClosure? // 时间改变回调
     
-    required init(with playerView: OnePlayerView,
+    required public init(with playerView: OnePlayerView,
                   and coordinator: OnePlayerBaseControlsCoordinator) {
         super.init(with: playerView)
         self.coordinator = coordinator
