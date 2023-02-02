@@ -33,7 +33,7 @@ public typealias OneVideoPlayTimeHanderClosure = (_ time: TimeInterval) -> Void
 open class OneVideoPlayerManagerExtension: NSObject {
     
     /// 这里需要使用weak , 不然内存泄漏
-    weak var playerView: OnePlayerView?
+    public weak var playerView: OnePlayerView?
     /// 是否正在播放
     var isPlaying: Bool = false
     
