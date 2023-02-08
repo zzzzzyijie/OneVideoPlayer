@@ -72,6 +72,8 @@ open class OneVideoPlayerViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        preSetup()
+        
         setupInit()
         
         setupUI()
@@ -113,6 +115,11 @@ open class OneVideoPlayerViewController: UIViewController {
     }
     
     // MARK: - Init Method ----------------------------
+    /// pre
+    open func preSetup() {
+        
+    }
+    
     /// init
     private func setupInit() {
         view.backgroundColor = .black

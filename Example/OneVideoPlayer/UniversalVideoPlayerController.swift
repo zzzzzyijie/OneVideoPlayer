@@ -11,6 +11,11 @@ import OneVideoPlayer
 
 // MARK: - ViewController ----------------------------
 class UniversalVideoPlayerController: OneVideoPlayerViewController {
+    
+    override func preSetup() {
+        
+    }
+    
     open override var shouldAutorotate: Bool {
         return true
     }
