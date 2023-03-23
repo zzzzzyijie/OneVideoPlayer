@@ -28,7 +28,8 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        let sdVideoUrl =  "http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/picker_examle_video.mp4"
+//        let sdVideoUrl =  "http://tsnrhapp.oss-cn-hangzhou.aliyuncs.com/picker_examle_video.mp4"
+        let sdVideoUrl =  "https://ct-vd1.jianzhishuyuan.net/dsh/20210303/f308b177b835a9811d058bfe8f5fb218_ud.mp4"
         let vc = UniversalVideoPlayerController(url: sdVideoUrl, title: "这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题这是视频标题")
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
