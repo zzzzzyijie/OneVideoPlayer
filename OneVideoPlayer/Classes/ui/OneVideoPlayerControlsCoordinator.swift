@@ -55,6 +55,7 @@ class OneVideoPlayerControlsCoordinator: OnePlayerBaseControlsCoordinator {
     /// 加载中
     private lazy var loadingView: OneVideoPlayerLoadingView = {
         let view = OneVideoPlayerLoadingView()
+        view.isShowNetworkSpeed = true
         view.isUserInteractionEnabled = false
         return view
     }()

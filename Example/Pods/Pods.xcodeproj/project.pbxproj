@@ -67,6 +67,7 @@
 		34E063ABEA4DF0E2A752378CBD183135 /* OneVideoPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2561EFA0EF0830012FBD587065410E0 /* OneVideoPlayer-dummy.m */; };
 		36F016BB6393EDA186499034E2964B80 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A1052EE93E386D3BF5EEC6E8A8CBD /* Typealiases.swift */; };
 		38E56B1E55FA5B1ADCB8E924CF145489 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6035DA2D20BBAC366AF2687C56947B /* ConstraintRelatableTarget.swift */; };
+		39160B472A17417B00CC3B1C /* NetworkSpeedMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39160B462A17417B00CC3B1C /* NetworkSpeedMonitor.swift */; };
 		39E8FB79CC283CD27BD10536DD98ADCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25D27F53483E7691E74F88B87CD0D33A /* Foundation.framework */; };
 		3B9E614FEB16FE982A415B20FA1C1F02 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E1C94589739A9980D91711F5242892 /* UIButtonExtensions.swift */; };
 		3CDF8C50740FCB805D04F3A3C722CF14 /* one_video_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB92C128EC5086B46EE3DAB13EDA3ACB /* one_video_pause@2x.png */; };
@@ -368,12 +369,12 @@
 		047DADCF29EB5573ADA83901574F2EBE /* ResourceBundle-OneVideoPlayer-OneVideoPlayer-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-OneVideoPlayer-OneVideoPlayer-Info.plist"; sourceTree = "<group>"; };
 		071878EE929AE812C3089B79129F4A10 /* SwiftCoreKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftCoreKit-umbrella.h"; sourceTree = "<group>"; };
 		083D9E7A5A4DBBFA80F3F49FCB7FE05F /* Frame+JExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Frame+JExtension.swift"; path = "SwiftCoreKit/Classes/Foundation/Frame+JExtension.swift"; sourceTree = "<group>"; };
-		090E6AA33A05B1B69B8EED07BAE526F3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		090E6AA33A05B1B69B8EED07BAE526F3 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0A29766DCCAE4E96265F36644875465D /* Device.generated.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Device.generated.swift; path = Source/Device.generated.swift; sourceTree = "<group>"; };
 		0A2A9B3512CD974FF559B96E0BF374F8 /* UIView+Layer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Layer.swift"; path = "SwiftCoreKit/Classes/UIKit/UIView+Layer.swift"; sourceTree = "<group>"; };
 		0A2E489814A81F89C013829A9B8834D8 /* SwifterSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwifterSwift-prefix.pch"; sourceTree = "<group>"; };
 		0A62F73B64CAE5CCA430868186F4ECB4 /* UIWindowExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIWindowExtensions.swift; path = Sources/SwifterSwift/UIKit/UIWindowExtensions.swift; sourceTree = "<group>"; };
-		0A93E6AEED50E06C5C1A0AE24B431B29 /* OneVideoPlayer.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = OneVideoPlayer.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0A93E6AEED50E06C5C1A0AE24B431B29 /* OneVideoPlayer.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = OneVideoPlayer.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		0CA9817BAA5AEEAD615C833DACFBC569 /* APIManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = APIManager/Classes/APIManager.swift; sourceTree = "<group>"; };
 		0D9831F207B5BA91B433F16B868AEF43 /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSPredicateExtensions.swift; path = Sources/SwifterSwift/Foundation/NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		0E1C012DD19D4CB2220C4A852CC61381 /* one_video_player_top_shadow.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = one_video_player_top_shadow.png; path = OneVideoPlayer/Assets/one_video_player_top_shadow.png; sourceTree = "<group>"; };
@@ -426,6 +427,7 @@
 		369F979B3A407C83950E036CE897E21B /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		373910E71EE773225ACE48055FFDFCCD /* AdapterTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterTool.swift; path = SwiftCoreKit/Classes/Tool/AdapterTool.swift; sourceTree = "<group>"; };
 		3888336BBD1CFE1C864AC5D75F7BF703 /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIStackViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UIStackViewExtensions.swift; sourceTree = "<group>"; };
+		39160B462A17417B00CC3B1C /* NetworkSpeedMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpeedMonitor.swift; sourceTree = "<group>"; };
 		3A22309B32B217307C4BB25CD469D5D6 /* Hue.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Hue.modulemap; sourceTree = "<group>"; };
 		3ADFD2A9E4FC5ECC3E05EFD0B4971E7F /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		3CE79260F36A8E66F069E1A7D2601CA9 /* NumberConvertible.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NumberConvertible.swift; path = SwiftCoreKit/Classes/Foundation/NumberConvertible.swift; sourceTree = "<group>"; };
@@ -537,7 +539,7 @@
 		9A8630F774F6D57166E8B4E70B729601 /* Hue-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hue-prefix.pch"; sourceTree = "<group>"; };
 		9B4320162ABED6FBC812741F03A3E490 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGFloatExtensions.swift; path = Sources/SwifterSwift/CoreGraphics/CGFloatExtensions.swift; sourceTree = "<group>"; };
 		9C5E049F3596B3147B54116501489B38 /* OnePlayerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnePlayerManager.swift; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F71B79E80E30A231B8430EB2DB0EF17 /* Gedatsu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Gedatsu.modulemap; sourceTree = "<group>"; };
 		A1028E9A1CA2589D248C75CE6B37A88B /* Reader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Sources/Gedatsu/Reader.swift; sourceTree = "<group>"; };
 		A2988868A3B7E52FEAF18F80A50EC841 /* UIView+JExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+JExtension.swift"; path = "SwiftCoreKit/Classes/UIKit/UIView+JExtension.swift"; sourceTree = "<group>"; };
@@ -641,7 +643,7 @@
 		F9731E21C7C55B096813178DDE93E625 /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISearchBarExtensions.swift; path = Sources/SwifterSwift/UIKit/UISearchBarExtensions.swift; sourceTree = "<group>"; };
 		F99EAC11C7E4B4B37A4CB4C2D8C744C8 /* UIWindow+JExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIWindow+JExtension.swift"; path = "SwiftCoreKit/Classes/UIKit/UIWindow+JExtension.swift"; sourceTree = "<group>"; };
 		FB1D520F0E78E616AF73F2F3B884ECFF /* OnePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OnePlayer.release.xcconfig; sourceTree = "<group>"; };
-		FBD032D57BC3A37F0AD67A1BC6040778 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		FBD032D57BC3A37F0AD67A1BC6040778 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FCFE54D8A3DDB5FF16C1EC2F93D012F5 /* UIColor+JExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+JExtension.swift"; path = "SwiftCoreKit/Classes/UIKit/UIColor+JExtension.swift"; sourceTree = "<group>"; };
 		FDB147FEE6906CEBFDE7292C32A9110D /* one_video_pause@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "one_video_pause@3x.png"; path = "OneVideoPlayer/Assets/one_video_pause@3x.png"; sourceTree = "<group>"; };
 		FDBD1696CBDB03DD42B761AFEF45014D /* OnePlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnePlayerView.swift; sourceTree = "<group>"; };
@@ -815,7 +817,6 @@
 				0A29766DCCAE4E96265F36644875465D /* Device.generated.swift */,
 				DFE132CCF374CC1F64CB83D78A6BCCB6 /* Support Files */,
 			);
-			name = DeviceKit;
 			path = DeviceKit;
 			sourceTree = "<group>";
 		};
@@ -852,7 +853,6 @@
 				09E5106654152B99DB706D73FB25A024 /* Tool */,
 				CB7F3538F5375E593642D71E8CAF0974 /* UIKit */,
 			);
-			name = SwiftCoreKit;
 			path = SwiftCoreKit;
 			sourceTree = "<group>";
 		};
@@ -860,6 +860,7 @@
 			isa = PBXGroup;
 			children = (
 				9C5E049F3596B3147B54116501489B38 /* OnePlayerManager.swift */,
+				39160B462A17417B00CC3B1C /* NetworkSpeedMonitor.swift */,
 			);
 			name = manager;
 			path = OneVideoPlayer/Classes/manager;
@@ -928,7 +929,6 @@
 				C847FE760B728830A5875998A1769486 /* Validation.swift */,
 				06FFD4C67499B9C3E09684D0489E332C /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1000,7 +1000,6 @@
 				EB88030530E63A1702D775D345B4A0F9 /* Support Files */,
 				EA6B0CA8CBA805627AF29CB4775CC7A7 /* UIKit */,
 			);
-			name = SwifterSwift;
 			path = SwifterSwift;
 			sourceTree = "<group>";
 		};
@@ -1012,7 +1011,6 @@
 				0CA9817BAA5AEEAD615C833DACFBC569 /* APIManager.swift */,
 				3FF3E5C7B329015CEEEF156677026EFC /* Support Files */,
 			);
-			name = APIManager;
 			path = APIManager;
 			sourceTree = "<group>";
 		};
@@ -1044,7 +1042,6 @@
 				03B5D85C1451FBF9484124AC9E503269 /* UIImage+Hue.swift */,
 				78708ECF405E8C9562BB71D60BA25C78 /* Support Files */,
 			);
-			name = Hue;
 			path = Hue;
 			sourceTree = "<group>";
 		};
@@ -1091,7 +1088,6 @@
 				B03002F27962E86408E98E2F3E1C5A11 /* Writer.swift */,
 				05F1734FE593C71B3D085FC4815D8FC3 /* Support Files */,
 			);
-			name = Gedatsu;
 			path = Gedatsu;
 			sourceTree = "<group>";
 		};
@@ -1137,7 +1133,6 @@
 				905355B2C2C0D6852FBF0A0E7AFF4A61 /* UILayoutSupport+Extensions.swift */,
 				66E7D6A0C7EFD23531BE7EAC4D81B009 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -1356,7 +1351,6 @@
 				45A29AB2569A60CA81F853B8F860C4AF /* OnePlayerHepler.swift */,
 				E86D73E5034832CFDDC4880B1D8D87F0 /* Support Files */,
 			);
-			name = OnePlayer;
 			path = OnePlayer;
 			sourceTree = "<group>";
 		};
@@ -1870,6 +1864,7 @@
 				CC4F44D6E9D43CFD4FF9EAC7DF59AD18 /* OnePlayerView.swift in Sources */,
 				34E063ABEA4DF0E2A752378CBD183135 /* OneVideoPlayer-dummy.m in Sources */,
 				1C62782D7296350F2B50C12541E60ECB /* OneVideoPlayerControls.swift in Sources */,
+				39160B472A17417B00CC3B1C /* NetworkSpeedMonitor.swift in Sources */,
 				67CC814451BBCE4334B81264AE34FEE0 /* OneVideoPlayerControlsCoordinator.swift in Sources */,
 				9FD8E56E862BECAE1D9526B9E8D91CBC /* OneVideoPlayerLoadingView.swift in Sources */,
 				9E4F5FD17414B4B45B70C239C1180DF1 /* OneVideoPlayerRecieverView.swift in Sources */,
@@ -2732,8 +2727,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

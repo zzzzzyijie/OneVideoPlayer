@@ -23,6 +23,23 @@ public class OneVideoPlayerLoadingView: UIView {
         return activityView
     }()
     
+    /// text
+    private lazy var textLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    /// Network Speed Monitor
+    private lazy var networkMonitor: NetworkSpeedMonitor = {
+        return NetworkSpeedMonitor()
+    }()
+    
+    /// is show Network Speed or not ( default is no
+    public var isShowNetworkSpeed = false
+    
     // MARK: - Life Cycle ----------------------------
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,11 +51,18 @@ public class OneVideoPlayerLoadingView: UIView {
         setupUI()
     }
     
+    deinit {
+        if isShowNetworkSpeed {
+            networkMonitor.stopNetworkSpeedMonitor()
+        }
+    }
+    
     // MARK: - Init Method ----------------------------
     func setupUI() {
         // Add UI
         addSubview(contentView)
         contentView.addSubview(loadingView)
+        contentView.addSubview(textLabel)
         
         // Layout
         contentView.snp.makeConstraints {
@@ -49,6 +73,14 @@ public class OneVideoPlayerLoadingView: UIView {
             $0.size.equalTo(CGSize(width: 44, height: 44))
             $0.center.equalToSuperview()
         }
+        
+        textLabel.snp.makeConstraints {
+            $0.top.equalTo(loadingView.snp.bottom).offset(10)
+            $0.centerX.equalTo(loadingView)
+        }
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(networkSpeedChanged(notification:)), name: NetworkSpeedMonitor.DownloadNetworkSpeedNotification, object: nil)
     }
     
     // MARK: - Public Method ----------------------------
@@ -57,16 +89,26 @@ public class OneVideoPlayerLoadingView: UIView {
             return
         }
         loadingView.startAnimating()
+        if isShowNetworkSpeed {
+            networkMonitor.startNetworkSpeedMonitor()
+        }
         isHidden = false
     }
     
     public func stopLoading() {
         loadingView.stopAnimating()
+        if isShowNetworkSpeed {
+            networkMonitor.stopNetworkSpeedMonitor()
+        }
         isHidden = true
     }
     
     // MARK: - Touch Event ----------------------------
-    
+    @objc func networkSpeedChanged(notification: Notification) {
+        if let downloadSpped = notification.userInfo?[NetworkSpeedMonitor.NetworkSpeedNotificationKey] as? String {
+            textLabel.text = downloadSpped
+        }
+    }
 }
 
 class OneVideoPlayerLoadingContentView: UIView {
