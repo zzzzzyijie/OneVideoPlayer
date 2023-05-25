@@ -26,6 +26,7 @@ public class OneVideoPlayerLoadingView: UIView {
     /// text
     private lazy var textLabel: UILabel = {
         let label = UILabel()
+        label.text = "加载中..."
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .center
@@ -106,7 +107,7 @@ public class OneVideoPlayerLoadingView: UIView {
     // MARK: - Touch Event ----------------------------
     @objc func networkSpeedChanged(notification: Notification) {
         if let downloadSpped = notification.userInfo?[NetworkSpeedMonitor.NetworkSpeedNotificationKey] as? String {
-            textLabel.text = downloadSpped
+            textLabel.text = "加载中...\(downloadSpped)"
         }
     }
 }
