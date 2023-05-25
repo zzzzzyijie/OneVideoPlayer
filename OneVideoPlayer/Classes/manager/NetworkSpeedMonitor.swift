@@ -9,15 +9,15 @@ import Foundation
 import SystemConfiguration.CaptiveNetwork
 
 open class NetworkSpeedMonitor {
-    private var iBytes: UInt32 = 0
-    private var oBytes: UInt32 = 0
-    private var allFlow: UInt32 = 0
-    private var wifiIBytes: UInt32 = 0
-    private var wifiOBytes: UInt32 = 0
-    private var wifiFlow: UInt32 = 0
-    private var wwanIBytes: UInt32 = 0
-    private var wwanOBytes: UInt32 = 0
-    private var wwanFlow: UInt32 = 0
+    private var iBytes: Int = 0
+    private var oBytes: Int = 0
+    private var allFlow: Int = 0
+    private var wifiIBytes: Int = 0
+    private var wifiOBytes: Int = 0
+    private var wifiFlow: Int = 0
+    private var wwanIBytes: Int = 0
+    private var wwanOBytes: Int = 0
+    private var wwanFlow: Int = 0
     private var timer: Timer?
 
     private(set) var downloadNetworkSpeed: String?
@@ -65,40 +65,41 @@ open class NetworkSpeedMonitor {
         guard getifaddrs(&ifaddr) == 0 else { return }
         defer { freeifaddrs(ifaddr) }
 
-        var iBytes: UInt32 = 0
-        var oBytes: UInt32 = 0
-        //var allFlow: UInt32 = 0
-        var wifiIBytes: UInt32 = 0
-        var wifiOBytes: UInt32 = 0
-        //var wifiFlow: UInt32 = 0
-        var wwanIBytes: UInt32 = 0
-        var wwanOBytes: UInt32 = 0
-        //var wwanFlow: UInt32 = 0
+        var iBytes: Int = 0
+        var oBytes: Int = 0
+        var wifiIBytes: Int = 0
+        var wifiOBytes: Int = 0
+        var wwanIBytes: Int = 0
+        var wwanOBytes: Int = 0
 
         for ptr in sequence(first: ifaddr, next: { $0?.pointee.ifa_next }) {
             guard let ifa = ptr?.pointee else { continue }
             if ifa.ifa_addr.pointee.sa_family != UInt8(AF_LINK) { continue }
-            if (ifa.ifa_flags & UInt32(IFF_UP)) == 0 && (ifa.ifa_flags & UInt32(IFF_RUNNING)) == 0 { continue }
+            if (Int(ifa.ifa_flags) & Int(IFF_UP)) == 0 && (Int(ifa.ifa_flags) & Int(IFF_RUNNING)) == 0 { continue }
             if ifa.ifa_data == nil { continue }
 
             let name = String(cString: ifa.ifa_name)
             let if_data = ifa.ifa_data.assumingMemoryBound(to: if_data.self).pointee
-
-            if !name.hasPrefix("lo") {
-                iBytes += if_data.ifi_ibytes
-                oBytes += if_data.ifi_obytes
-                allFlow = iBytes + oBytes
+            
+            if (strncmp(name, "lo", 2) != 0) {
+                iBytes += Int(if_data.ifi_ibytes)
+                oBytes += Int(if_data.ifi_obytes)
+                allFlow = Int(iBytes + oBytes)
             }
-
-            if name == "en0" {
-                wifiIBytes += if_data.ifi_ibytes
-                wifiOBytes += if_data.ifi_obytes
+            
+            if (strcmp(name, "en0") != 0) {
+                wifiIBytes += Int(if_data.ifi_ibytes)
+                wifiOBytes += Int(if_data.ifi_obytes)
                 wifiFlow = wifiIBytes + wifiOBytes
             }
-
-            if name == "pdp_ip0" {
-                wwanIBytes += if_data.ifi_ibytes
-                wwanOBytes += if_data.ifi_obytes
+            
+            if (strcmp(name, "pdp_ip0") != 0) {
+                debugPrint("if_data")
+                debugPrint(if_data)
+                debugPrint("if_data.ifi_ibytes")
+                debugPrint(if_data.ifi_ibytes)
+                wwanIBytes += Int(if_data.ifi_ibytes)
+                wwanOBytes += Int(if_data.ifi_obytes)
                 wwanFlow = wwanIBytes + wwanOBytes
             }
         }
@@ -118,3 +119,4 @@ open class NetworkSpeedMonitor {
         self.oBytes = oBytes
     }
 }
+
