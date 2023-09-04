@@ -33,7 +33,7 @@ lane :release_pod do |options|
   push_git_tags
 
   # 《7》验证 spec 文件
-  pod_lib_lint(allow_warnings: true)
+  pod_lib_lint(allow_warnings: true,use_bundle_exec: false)
 
   # 《8》检查是否传了 repo 参数，如果发布私有框架，就需要传自己的 spec 仓库名，发布到官方库不需要传。
   if target_repo
