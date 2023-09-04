@@ -13,6 +13,7 @@ public typealias OnePlayerHanderClosure = (_ action: OnePlayerControlsAction) ->
 public enum OnePlayerControlsAction {
     case back   // 返回
     case playOrPause(Bool)   // 播放&暂停
+    case timeChange(CGFloat) // 播放进度的变化
     case slider(OneVideoPlayerSliderState) // 滑动状态
     case lock(Bool)  // 锁
 }
@@ -160,6 +161,7 @@ class OneVideoPlayerControlsCoordinator: OnePlayerBaseControlsCoordinator {
             }
             let progress = CGFloat(time) / CGFloat(endTimeDuration)
             updateSlider(with: progress)
+            uiActionHandler?(.timeChange(progress))
         }
     }
     

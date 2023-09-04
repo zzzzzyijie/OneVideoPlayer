@@ -149,6 +149,12 @@ open class OneVideoPlayerViewController: UIViewController {
         startPlay()
     }
     
+    // MARK: - Override Method ----------------------------
+    // 用于子类重写，获取进度，处理业务逻辑
+    open func updateProgress(with progress: CGFloat) {
+        
+    }
+    
     // MARK: - Private Method ----------------------------
     /// 处理ui事件
     private func handlerPlayerUIAction(action: OnePlayerControlsAction) {
@@ -167,6 +173,9 @@ open class OneVideoPlayerViewController: UIViewController {
             }else {
                 playManager?.togglePlayback()
             }
+            break
+        case .timeChange(let progress):
+            updateProgress(with: progress)
             break
         case .slider(let status):
             let total = customCoordinator.endTimeDuration
@@ -188,6 +197,7 @@ open class OneVideoPlayerViewController: UIViewController {
                         self?.customCoordinator.isBeginDrag = false
                     }
                 })
+                updateProgress(with: progress)
                 break
             case .onTap(let progress):
                 customCoordinator.isBeginDrag = true
@@ -200,6 +210,8 @@ open class OneVideoPlayerViewController: UIViewController {
                         self?.customCoordinator.isBeginDrag = false
                     }
                 })
+                updateProgress(with: progress)
+                break
             case .cancel:
                 customCoordinator.isBeginDrag = false
                 debugPrint("----cancel,fial")
