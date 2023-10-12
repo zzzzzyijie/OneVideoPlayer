@@ -71,6 +71,11 @@ open class OneVideoPlayerManagerExtension: NSObject {
         }
     }
     
+    /// 设置倍速
+    func setRate(_ rate: Float) {
+        playerView?.setRate(rate)
+    }
+    
     /// 重播
     /// - Parameter isAutoPlay: 是否自动播放
     public func rePlay(isAutoPlay: Bool = true) {

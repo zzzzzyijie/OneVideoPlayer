@@ -74,7 +74,7 @@
 		3D2677F146A49963E2C55E5E62307015 /* UIGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFE42625FCAF83994B958A990C3E3B9E /* UIGestureRecognizerExtensions.swift */; };
 		3EE93132F6A7B807B75CAA2293F2AB2F /* OneVideoPlayerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BF59574DB7501BF8AFF2DBE69877CA /* OneVideoPlayerSlider.swift */; };
 		3F2A5C9DF6E6A443C5DEF1235E911936 /* Optional+JExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D9280221C393513EEC550AFA558239 /* Optional+JExtension.swift */; };
-		3F5CA8EE8558E5B6AF255313650F39D1 /* OneVideoPlayer-OneVideoPlayer in Resources */ = {isa = PBXBuildFile; fileRef = 8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer-OneVideoPlayer */; };
+		3F5CA8EE8558E5B6AF255313650F39D1 /* OneVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer.bundle */; };
 		410395AEFFD2E1D82D63D5121921AC9E /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C41D493029CFDC20EC6AA4F6934704 /* CGAffineTransformExtensions.swift */; };
 		412D0DC734C66C4F4B5ADF501CCF2D0D /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BDC05ED3243568110CFC8C8B011709 /* ConstraintRelation.swift */; };
 		414E5C70038B7674C98D667BF5990A8A /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EAAEB06CA5FE72C1611EA0D43FE696 /* ConstraintMakerRelatable.swift */; };
@@ -517,7 +517,7 @@
 		8C4D8C27250AF6817A09A36EB7A1E85B /* APIManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "APIManager-dummy.m"; sourceTree = "<group>"; };
 		8C81A3F6D6E88BB13C101D6462262715 /* SwifterSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwifterSwift; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CFC1CE0D8892089D604F3392674DCE9 /* OneVideoPlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OneVideoPlayer-prefix.pch"; sourceTree = "<group>"; };
-		8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer-OneVideoPlayer */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "OneVideoPlayer-OneVideoPlayer"; path = OneVideoPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OneVideoPlayer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFCEC7FEF2AD8546FD017C682DCC3C1 /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+Navigation.swift"; path = "SwiftCoreKit/Classes/UIKit/UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		8F04E87BF3344013DA9D5B685318ECFA /* Formatter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = Sources/Gedatsu/Formatter.swift; sourceTree = "<group>"; };
 		8FD232986A36EFF700BEDA564CA56149 /* OnePlayerResource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnePlayerResource.swift; sourceTree = "<group>"; };
@@ -547,7 +547,7 @@
 		A318E7ADFC1DA2BBCC935FB3E55FD387 /* UserDefaults+JExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UserDefaults+JExtension.swift"; path = "SwiftCoreKit/Classes/Foundation/UserDefaults+JExtension.swift"; sourceTree = "<group>"; };
 		A35A6CF14C7D4EBCE8FFB1B2A3E15147 /* Interceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Interceptor.swift; path = Sources/Gedatsu/Interceptor.swift; sourceTree = "<group>"; };
 		A38660EA2DA05D5EFF0AF5FD662B126E /* Alamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.release.xcconfig; sourceTree = "<group>"; };
-		A3B9017440BF6211054FE81F7F78BC76 /* Hue */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Hue; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B9017440BF6211054FE81F7F78BC76 /* Hue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5E1A027FA7F6D4F8A92B557C6AD4B91 /* JSONTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONTool.swift; path = SwiftCoreKit/Classes/Tool/JSONTool.swift; sourceTree = "<group>"; };
 		A64DAD7CAF65AA9D2590A61ABCCD2708 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Sources/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		A6DD6BD50528C662CF60F97C3915DA1B /* DeviceKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DeviceKit-Info.plist"; sourceTree = "<group>"; };
@@ -761,10 +761,10 @@
 				17FDA3BBEA913FE976E409F9F4CABF30 /* APIManager */,
 				190D7383CCEFD8AB3F8CB93098A3F214 /* DeviceKit */,
 				ACB155C1CBA1424F112A329767D33477 /* Gedatsu */,
-				A3B9017440BF6211054FE81F7F78BC76 /* Hue */,
+				A3B9017440BF6211054FE81F7F78BC76 /* Hue.framework */,
 				1B16CDD2E9E3176FCA195CCB7BEC2E64 /* OnePlayer */,
 				BBBCE5453DC70B19CD4881536838A5A4 /* OneVideoPlayer */,
-				8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer-OneVideoPlayer */,
+				8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer.bundle */,
 				3D9C743D302A3D3E95AC08E69F326FEF /* Pods-OneVideoPlayer_Example */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
 				4CC7443B55BBBFCDF9E7B8E2F58FEEC3 /* SwiftCoreKit */,
@@ -1478,7 +1478,7 @@
 			);
 			name = Hue;
 			productName = Hue;
-			productReference = A3B9017440BF6211054FE81F7F78BC76 /* Hue */;
+			productReference = A3B9017440BF6211054FE81F7F78BC76 /* Hue.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		178D939679742C25DC4D360727992784 /* SwiftCoreKit */ = {
@@ -1627,7 +1627,7 @@
 			);
 			name = "OneVideoPlayer-OneVideoPlayer";
 			productName = OneVideoPlayer;
-			productReference = 8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer-OneVideoPlayer */;
+			productReference = 8D6C6CA8073F47C694A3CF588F824123 /* OneVideoPlayer.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		E1BA47437CF59781ECBA4C6217143037 /* APIManager */ = {
@@ -1703,6 +1703,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					9E0AED4173D277B37D3A54A155246780 = {
+						DevelopmentTeam = J3YBD7Y4S8;
+						ProvisioningStyle = Manual;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1780,7 +1786,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F5CA8EE8558E5B6AF255313650F39D1 /* OneVideoPlayer-OneVideoPlayer in Resources */,
+				3F5CA8EE8558E5B6AF255313650F39D1 /* OneVideoPlayer.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2299,7 +2305,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Hue/Hue-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Hue/Hue.modulemap";
 				PRODUCT_MODULE_NAME = Hue;
@@ -2737,11 +2743,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69256B05B6DDA85B9677ADC5BD83B87E /* OneVideoPlayer.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OneVideoPlayer";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J3YBD7Y4S8;
 				IBSC_MODULE = OneVideoPlayer;
 				INFOPLIST_FILE = "Target Support Files/OneVideoPlayer/ResourceBundle-OneVideoPlayer-OneVideoPlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = OneVideoPlayer;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2915,11 +2926,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B9BD6165FFABF62375138C38F96863D /* OneVideoPlayer.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/OneVideoPlayer";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = J3YBD7Y4S8;
 				IBSC_MODULE = OneVideoPlayer;
 				INFOPLIST_FILE = "Target Support Files/OneVideoPlayer/ResourceBundle-OneVideoPlayer-OneVideoPlayer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = OneVideoPlayer;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3071,7 +3087,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Hue/Hue-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Hue/Hue-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/Hue/Hue.modulemap";
 				PRODUCT_MODULE_NAME = Hue;

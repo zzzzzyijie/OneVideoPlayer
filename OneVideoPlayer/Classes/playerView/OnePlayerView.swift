@@ -23,6 +23,10 @@ public class OnePlayerView: UIView {
     // -----------------Private-----------------------
     /// 存储extension
     private var extensions: [String: OneVideoPlayerManagerExtension] = [:]
+    /// 是否在全屏
+    public var isFullscreenMode: Bool = false
+    /// OnePlayerView的容器（super view
+    private weak var nonFullscreenContainer: UIView?
     
     // MARK: - Life Cycle ----------------------------
     override init(frame: CGRect) {
@@ -69,6 +73,11 @@ public class OnePlayerView: UIView {
         seek(to: 0.0, isAutoPlay: isAutoPlay) { _ in }
     }
     
+    /// 设置倍速
+    func setRate(_ rate: Float) {
+        player.rate = rate
+    }
+    
     /// 指定进度播放
     /// - Parameters:
     ///   - time: 播放位置
@@ -88,6 +97,38 @@ public class OnePlayerView: UIView {
         })
     }
     
+    /// 是否进入全屏
+    public func setFullscreen(enabled: Bool) {
+        if enabled == isFullscreenMode {
+            return
+        }
+        if enabled {
+            // to do , keywindow 的获取方式
+            if let window = UIApplication.shared.keyWindow {
+                nonFullscreenContainer = superview
+                removeFromSuperview()
+                layout(view: self, into: window)
+            }
+        } else {
+            removeFromSuperview()
+            layout(view: self, into: nonFullscreenContainer)
+        }
+        
+        isFullscreenMode = enabled
+    }
+    
+    public func layout(view: UIView, into: UIView? = nil) {
+        guard let into = into else {
+            return
+        }
+        into.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.topAnchor.constraint(equalTo: into.topAnchor).isActive = true
+        view.leftAnchor.constraint(equalTo: into.leftAnchor).isActive = true
+        view.rightAnchor.constraint(equalTo: into.rightAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: into.bottomAnchor).isActive = true
+    }
+    
     /// 添加player extension
     /// - Parameters:
     ///   - ext: OnePlayerManagerExtension
@@ -105,3 +146,4 @@ public class OnePlayerView: UIView {
         return extensions[name]
     }
 }
+
