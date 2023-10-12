@@ -97,17 +97,27 @@ public class OnePlayerView: UIView {
         })
     }
     
-    /// 是否进入全屏
-    public func setFullscreen(enabled: Bool) {
+    
+    /// 进去退出全屏
+    /// - Parameters:
+    ///   - enabled: 是否全屏
+    ///   - fullView: 全屏的view,传nil则默认keywindow
+    public func setFullscreen(enabled: Bool, fullView: UIView? = nil) {
         if enabled == isFullscreenMode {
             return
         }
         if enabled {
             // to do , keywindow 的获取方式
-            if let window = UIApplication.shared.keyWindow {
+            var fullContainerView: UIView?
+            if fullView != nil {
+                fullContainerView = fullView
+            }else {
+                fullContainerView = UIApplication.shared.keyWindow
+            }
+            if let _fullContainerView = fullContainerView {
                 nonFullscreenContainer = superview
                 removeFromSuperview()
-                layout(view: self, into: window)
+                layout(view: self, into: _fullContainerView)
             }
         } else {
             removeFromSuperview()
