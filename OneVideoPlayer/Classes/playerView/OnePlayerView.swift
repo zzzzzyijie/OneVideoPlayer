@@ -74,7 +74,7 @@ public class OnePlayerView: UIView {
     }
     
     /// 设置倍速
-    func setRate(_ rate: Float) {
+    public func setRate(_ rate: Float) {
         player.rate = rate
     }
     

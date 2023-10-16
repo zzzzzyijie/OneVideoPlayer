@@ -72,7 +72,7 @@ open class OneVideoPlayerManagerExtension: NSObject {
     }
     
     /// 设置倍速
-    func setRate(_ rate: Float) {
+    public func setRate(_ rate: Float) {
         playerView?.setRate(rate)
     }
     
