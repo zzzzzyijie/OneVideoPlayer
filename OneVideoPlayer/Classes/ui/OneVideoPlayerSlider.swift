@@ -271,15 +271,16 @@ public class OneVideoPlayerSlider: UIView {
             let minX = sliderButton.bounds.width * 0.5
             let maxX = trackProgressView.bounds.width - minX
             var rect = thumbViewFrame
+            // TO DO
             rect.origin.x += specifiedPoint.x
-            if rect.midX < minX {
+            if rect.origin.x < 0 {
                 rect.origin.x = 0
             }
-            if rect.midX > maxX {
-                rect.origin.x = maxX - minX
+            if rect.origin.x > maxX {
+                rect.origin.x = maxX
             }
-            progress = (rect.midX - minX) / (maxX - minX)
-            debugPrint("value = \(progress)")
+            progress = rect.origin.x / maxX
+            //debugPrint("value = \(progress)")
             handlerBlock?(.changed(progress: progress))
             break
         case .ended:
