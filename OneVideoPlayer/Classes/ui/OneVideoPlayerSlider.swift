@@ -97,6 +97,23 @@ public class OneVideoPlayerSlider: UIView {
         }
     }
     
+    /// 打点列表
+    var dotsTimeList: [Int] = [] {
+        didSet {
+            dotsViewList.forEach { $0.removeFromSuperview() }
+            dotsViewList = dotsTimeList.map({ item in
+                let imageView = UIImageView()
+                imageView.isHidden = true
+                if let img = dotsImage {
+                    imageView.image = img
+                }
+                contentView.addSubview(imageView)
+                return imageView
+            })
+            updateUI()
+        }
+    }
+    
     // 是否允许Tap To progress
     public var isAllowTapToProgress: Bool = true
     // 是否允许动画 When Drag
@@ -107,6 +124,10 @@ public class OneVideoPlayerSlider: UIView {
     public var thumbOffset: CGFloat = 3
     // 滑块临时frame
     public var thumbViewFrame: CGRect = .zero
+    // 打点的图片
+    public var dotsImage: UIImage?
+    // 打点列表
+    private var dotsViewList: [UIView] = []
     
     // 回调
     public var handlerBlock: ((OneVideoPlayerSliderState) -> Void)?
@@ -221,6 +242,22 @@ public class OneVideoPlayerSlider: UIView {
         sliderProgressView.one.y = cententY
         bufferProgressView.one.y = cententY
         sliderButton.one.y = sliderCenterY
+        
+        // 打点布局
+        if duration > 0 {
+            for (index, dot) in dotsTimeList.enumerated() {
+                if index < dotsTimeList.count {
+                    let dotView = self.dotsViewList[index]
+                    dotView.isHidden = false
+                    let dotTime = TimeInterval(dot)
+                    let dotProgress = dotTime/self.duration
+                    let x = dotProgress * contentW
+                    let dotFrame = dotView.frame
+                    let newFrame = CGRect(x: (x-1), y: cententY, width: dotFrame.size.width, height: dotFrame.size.height)
+                    dotView.frame = newFrame
+                }
+            }
+        }
     }
     
     func setupBackgroundColor() {
