@@ -101,6 +101,8 @@ public class OneVideoPlayerSlider: UIView {
     public var isAllowTapToProgress: Bool = true
     // 是否允许动画 When Drag
     public var isAllowAnimateWhenDrag: Bool = true
+    // 是否允许往后滑动
+    public var isBackwardSlideAllowed: Bool = true
     // 滑块的偏移
     public var thumbOffset: CGFloat = 3
     // 滑块临时frame
@@ -170,10 +172,8 @@ public class OneVideoPlayerSlider: UIView {
         setupRadius()
         
         // 添加手势
-        if isAllowTapToProgress {
-            let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
-            contentView.addGestureRecognizer(tap)
-        }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_:)))
+        contentView.addGestureRecognizer(tap)
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(panAction(_:)))
         contentView.addGestureRecognizer(pan)
@@ -241,6 +241,7 @@ public class OneVideoPlayerSlider: UIView {
      
     // MARK: - Touch Event ----------------------------
     @objc func tapAction(_ tap: UITapGestureRecognizer) {
+        if !isAllowTapToProgress { return }
         let point = tap.location(in: trackProgressView)
         let contentW = trackProgressView.one.width
         if contentW.isNaN {
@@ -271,16 +272,37 @@ public class OneVideoPlayerSlider: UIView {
             let minX = sliderButton.bounds.width * 0.5
             let maxX = trackProgressView.bounds.width - minX
             var rect = thumbViewFrame
-            // TO DO
-            rect.origin.x += specifiedPoint.x
-            if rect.origin.x < 0 {
-                rect.origin.x = 0
+            // rect.origin.x += specifiedPoint.x
+            // if rect.midX < minX {
+            //     rect.origin.x = 0
+            // }
+            // if rect.midX > maxX {
+            //     rect.origin.x = maxX - minX
+            // }
+            // progress = (rect.midX - minX) / (maxX - minX)
+            // debugPrint("value = \(progress)")
+            // handlerBlock?(.changed(progress: progress))
+            
+            var newX = rect.origin.x + specifiedPoint.x
+            
+            if !isBackwardSlideAllowed {
+                // 如果不允许往后滑，则限制新的 X 坐标不大于当前位置
+                newX = min(rect.origin.x, newX)
             }
-            if rect.origin.x > maxX {
-                rect.origin.x = maxX
-            }
-            progress = rect.origin.x / maxX
-            //debugPrint("value = \(progress)")
+            
+            // 确保 newX 在有效范围内
+            newX = max(0, min(newX, maxX - minX))
+            
+            rect.origin.x = newX
+            
+            // 更新进度
+            progress = (rect.midX - minX) / (maxX - minX)
+            progress = max(0, min(1, progress)) // 确保进度在 0 到 1 之间
+            
+            // 更新滑块位置
+            sliderButton.frame = rect
+            
+            debugPrint("value = \(progress)")
             handlerBlock?(.changed(progress: progress))
             break
         case .ended:
