@@ -12,14 +12,14 @@ import Gedatsu
 /*
  *              发布指南
  *  1. 确定版本号 （ 在2步骤里版本号 + ） ps: 不需要再在podspec里同步改，因为下面的脚本会自动改
- *  2. fastlane release_pod project:'OneVideoPlayer' version:'0.3.8'
+ *  2. fastlane release_pod project:'OneVideoPlayer' version:'0.3.9'
  *  3. 注意： 先commit 新功能，然后小修改，再执行步骤2 （ 不能无commit发布）
  *
  */
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+    // 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

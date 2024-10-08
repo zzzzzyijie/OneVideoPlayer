@@ -98,7 +98,7 @@ public class OneVideoPlayerSlider: UIView {
     }
     
     /// 打点列表
-    var dotsTimeList: [Int] = [] {
+    public var dotsTimeList: [Int] = [] {
         didSet {
             dotsViewList.forEach { $0.removeFromSuperview() }
             dotsViewList = dotsTimeList.map({ item in
