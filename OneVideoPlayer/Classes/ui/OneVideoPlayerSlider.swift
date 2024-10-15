@@ -97,6 +97,9 @@ public class OneVideoPlayerSlider: UIView {
         }
     }
     
+    // 打点大小
+    public var dotSize: CGSize = CGSize(width: 8, height: 8)
+    
     /// 打点列表
     public var dotsTimeList: [Int] = [] {
         didSet {
@@ -127,7 +130,7 @@ public class OneVideoPlayerSlider: UIView {
     // 打点的图片
     public var dotsImage: UIImage?
     // 打点列表
-    private var dotsViewList: [UIView] = []
+    public var dotsViewList: [UIView] = []
     
     // 回调
     public var handlerBlock: ((OneVideoPlayerSliderState) -> Void)?
@@ -253,7 +256,8 @@ public class OneVideoPlayerSlider: UIView {
                     let dotProgress = dotTime/self.duration
                     let x = dotProgress * contentW
                     let dotFrame = dotView.frame
-                    let newFrame = CGRect(x: (x-1), y: cententY, width: dotFrame.size.width, height: dotFrame.size.height)
+                    let dotY = CGFloat((contentH - dotSize.height)*0.5)
+                    let newFrame = CGRect(x: (x-1), y: dotY, width: dotSize.width, height: dotSize.height)
                     dotView.frame = newFrame
                 }
             }
@@ -286,7 +290,7 @@ public class OneVideoPlayerSlider: UIView {
         }
         var progress = (point.x - sliderButton.one.width * 0.5) * 1.0 / contentW
         progress = progress > 1.0 ? 1.0 : progress <= 0 ? 0 : progress
-        self.progress = progress
+        // self.progress = progress
         handlerBlock?(.onTap(progress: progress))
     }
     
