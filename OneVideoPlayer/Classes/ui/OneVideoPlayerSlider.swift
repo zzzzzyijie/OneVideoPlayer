@@ -337,14 +337,14 @@ public class OneVideoPlayerSlider: UIView {
             rect.origin.x = newX
             
             // 更新进度
-            progress = (rect.midX - minX) / (maxX - minX)
-            progress = max(0, min(1, progress)) // 确保进度在 0 到 1 之间
+            var newProgress = (rect.midX - minX) / (maxX - minX)
+            newProgress = max(0, min(1, newProgress)) // 确保进度在 0 到 1 之间
             
             // 更新滑块位置
-            sliderButton.frame = rect
+            // sliderButton.frame = rect
             
-            debugPrint("value = \(progress)")
-            handlerBlock?(.changed(progress: progress))
+            debugPrint("value = \(newProgress)")
+            handlerBlock?(.changed(progress: newProgress))
             break
         case .ended:
             thumbViewFrame = .zero
