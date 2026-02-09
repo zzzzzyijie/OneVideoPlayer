@@ -328,7 +328,7 @@ class UniversalControlsBottomBarView: UIView {
         }
         
         sliderView.snp.makeConstraints {
-            $0.height.equalTo(25)
+            $0.height.equalTo(OneVideoPlayerResource.playButtonSize.height)
         }
         
         [beginTimeLabel, endTimeLabel].forEach({

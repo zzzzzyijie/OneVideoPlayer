@@ -87,7 +87,7 @@ open class OneVideoPlayerViewController: UIViewController {
     }
     
     deinit {
-        debugPrint("-- OneVideoPlayerViewController is deinit  --")
+        logMessage("-- OneVideoPlayerViewController is deinit  --")
     }
     
     open override var shouldAutorotate: Bool {
@@ -160,6 +160,7 @@ open class OneVideoPlayerViewController: UIViewController {
     private func handlerPlayerUIAction(action: OnePlayerControlsAction) {
         switch action {
         case .back:
+            logMessage("----back")
             if let backTapHandler = backTapHandler {
                 backTapHandler(self)
             }else {
@@ -167,6 +168,7 @@ open class OneVideoPlayerViewController: UIViewController {
             }
             break
         case .playOrPause:
+            logMessage("----playOrPause")
             let currentPlayStatus = playManager?.status
             if currentPlayStatus == .didEnd {
                 playManager?.rePlay()
@@ -181,7 +183,7 @@ open class OneVideoPlayerViewController: UIViewController {
             let total = customCoordinator.endTimeDuration
             switch status {
             case .began:
-                debugPrint("----began")
+                logMessage("----began")
                 customCoordinator.isBeginDrag = true
                 break
             case .changed(let progress):
@@ -214,16 +216,31 @@ open class OneVideoPlayerViewController: UIViewController {
                 break
             case .cancel:
                 customCoordinator.isBeginDrag = false
-                debugPrint("----cancel,fial")
+                logMessage("----cancel,fial")
                 break
             }
             break
         case .lock(let isLock):
-            debugPrint(isLock)
+            logMessage(isLock ? "----lock" : "----unlock")
             break
         }
     }
-    
+
+    // 暂停
+    public func pause() {
+        playManager?.pause()
+    }
+
+    // 播放
+    public func play() {
+        playManager?.play()
+    }
+
+    // 打印日志
+    open func logMessage(_ message: String) {
+        debugPrint(message)
+    }
+
     /// 退出
     private func dismissPageAction() {
         let controllers: [UIViewController] = navigationController?.viewControllers ?? []
