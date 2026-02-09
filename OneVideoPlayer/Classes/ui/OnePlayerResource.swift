@@ -24,7 +24,6 @@ public class OneVideoPlayerResource {
 }
 
 enum Icon: String {
-enum Icon: String {
     
     case top_shadow = "one_video_player_top_shadow"
     case bottom_shadow = "one_video_player_bottom_shadow"
