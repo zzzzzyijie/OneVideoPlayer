@@ -253,8 +253,8 @@ class UniversalControlsBottomBarView: UIView {
     /// 播放按钮
     lazy var playButton: UIButton = {
         let button = UIButton()
-        button.setImage(Icon.pause.image, for: .normal)
-        button.setImage(Icon.play.image, for: .selected)
+        button.setImage(OneVideoPlayerResource.pauseImage, for: .normal)
+        button.setImage(OneVideoPlayerResource.playImage, for: .selected)
         return button
     }()
     
@@ -278,7 +278,7 @@ class UniversalControlsBottomBarView: UIView {
         view.bufferProgress = 0.0
         view.isAllowAnimateWhenDrag = false
         view.thumbSize = CGSize(width: 20, height: 20)
-        view.thumbImage = Icon.slider_dot.image
+        view.thumbImage = OneVideoPlayerResource.sliderImage
         // view.trackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
         // view.bufferTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
         // view.progressTintColor = UIColor(red: 1, green: 187/255.0, blue: 0, alpha: 1.0)
@@ -324,7 +324,7 @@ class UniversalControlsBottomBarView: UIView {
         }
         
         playButton.snp.makeConstraints {
-            $0.size.equalTo(CGSize(width: 25, height: 25))
+            $0.size.equalTo(OneVideoPlayerResource.playButtonSize)
         }
         
         sliderView.snp.makeConstraints {

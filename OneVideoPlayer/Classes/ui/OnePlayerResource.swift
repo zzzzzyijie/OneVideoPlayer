@@ -8,6 +8,22 @@
 import UIKit
 
 
+public class OneVideoPlayerResource {
+    
+    /// 播放图片
+    public static var playImage: UIImage? = Icon.play.image
+    
+    /// 暂停图片
+    public static var pauseImage: UIImage? = Icon.pause.image
+    
+    /// 滑块图片
+    public static var sliderImage: UIImage? = Icon.slider_dot.image
+    
+    /// 播放按钮大小
+    public static var playButtonSize: CGSize = CGSize(width: 25, height: 25)
+}
+
+enum Icon: String {
 enum Icon: String {
     
     case top_shadow = "one_video_player_top_shadow"
