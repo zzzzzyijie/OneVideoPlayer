@@ -36,6 +36,8 @@ open class OneVideoPlayerManagerExtension: NSObject {
     public weak var playerView: OnePlayerView?
     /// 是否正在播放
     var isPlaying: Bool = false
+    /// 离开页面时，是否正在播放
+    var isPlayingWhenLeave: Bool = false
     
     public init(with playerView: OnePlayerView) {
         self.playerView = playerView

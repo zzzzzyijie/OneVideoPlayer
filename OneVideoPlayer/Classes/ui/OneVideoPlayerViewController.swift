@@ -80,6 +80,16 @@ open class OneVideoPlayerViewController: UIViewController {
         
         setupPlayer()
     }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        willResignActive()
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        didBecomeActive()   
+    }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //super.touchesBegan(touches, with: event)
@@ -123,6 +133,10 @@ open class OneVideoPlayerViewController: UIViewController {
     /// init
     private func setupInit() {
         view.backgroundColor = .black
+
+        // 通知
+        NotificationCenter.default.addObserver(self,selector: #selector(willResignActive),name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(didBecomeActive),name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     /// ui
@@ -240,6 +254,31 @@ open class OneVideoPlayerViewController: UIViewController {
     open func logMessage(_ message: String) {
         debugPrint(message)
     }
+
+    // 是否需要暂停
+    open func isNeedPauseWhenLeave() -> Bool {
+        return false
+    }
+
+    // MARK: - Notification Method ----------------------------
+    /// willResignActive
+    @objc private func willResignActive() {
+        if !isNeedPauseWhenLeave() {
+            return
+        }
+        playManager?.isPlayingWhenLeave = playManager?.isPlaying ?? false
+        playManager?.pause()
+    }
+
+    /// didBecomeActive
+    @objc private func didBecomeActive() {
+        if !isNeedPauseWhenLeave() {
+            return
+        }
+        if playManager?.isPlayingWhenLeave ?? false {
+            playManager?.play()
+        }
+    }   
 
     /// 退出
     private func dismissPageAction() {
