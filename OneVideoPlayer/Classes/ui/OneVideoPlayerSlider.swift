@@ -18,6 +18,17 @@ public enum OneVideoPlayerSliderState {
 
 public class OneVideoPlayerSlider: UIView {
     
+    // MARK: - Global Configuration
+    
+    /// 默认滑杆颜色
+    public static var defaultTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+    
+    /// 默认播放进度颜色
+    public static var defaultProgressTintColor = UIColor(red: 1, green: 187/255.0, blue: 0, alpha: 1.0)
+    
+    /// 默认缓存进度颜色
+    public static var defaultBufferTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+    
     // MARK: - API ----------------------------
     // 进度高度
     public var progressHeight: CGFloat = 8
@@ -44,21 +55,21 @@ public class OneVideoPlayerSlider: UIView {
     }
     
     // 默认滑杆的颜色
-    public var trackTintColor: UIColor = UIColor.white {
+    public var trackTintColor: UIColor = OneVideoPlayerSlider.defaultTrackTintColor {
         didSet {
             trackProgressView.backgroundColor = trackTintColor
         }
     }
     
     // 播放进度颜色
-    public var progressTintColor: UIColor = UIColor.white {
+    public var progressTintColor: UIColor = OneVideoPlayerSlider.defaultProgressTintColor {
         didSet {
             sliderProgressView.backgroundColor = progressTintColor
         }
     }
     
     // 缓存进度颜色
-    public var bufferTrackTintColor: UIColor = UIColor.white {
+    public var bufferTrackTintColor: UIColor = OneVideoPlayerSlider.defaultBufferTrackTintColor {
         didSet {
             bufferProgressView.backgroundColor = bufferTrackTintColor
         }

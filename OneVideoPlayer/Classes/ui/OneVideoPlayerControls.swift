@@ -279,9 +279,9 @@ class UniversalControlsBottomBarView: UIView {
         view.isAllowAnimateWhenDrag = false
         view.thumbSize = CGSize(width: 20, height: 20)
         view.thumbImage = Icon.slider_dot.image
-        view.trackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        view.bufferTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        view.progressTintColor = UIColor(red: 1, green: 187/255.0, blue: 0, alpha: 1.0)
+        // view.trackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        // view.bufferTrackTintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+        // view.progressTintColor = UIColor(red: 1, green: 187/255.0, blue: 0, alpha: 1.0)
         return view
     }()
     
